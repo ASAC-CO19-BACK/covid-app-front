@@ -11,7 +11,7 @@ function Home() {
         <>
     <When condition={authContext.isLoggedIn}>
 
-            <Button style={{ float: "right", marginBop: "500px" }} id='btn' variant="contained"
+            <Button style={{ float: "right", marginTop: "16px" }} id='btn' variant="contained"
                     onClick={(e) => {
                         e.preventDefault();
                         authContext.signOut();
