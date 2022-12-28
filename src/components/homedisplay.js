@@ -5,8 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
-
+import HomeDisplayTotalWorldCard from './homeDisplayTotalWorldCard';
+import SpecificCountryCard from './specificCountryCard';
 export default function HomeDisplay() {
     const [Total, setTotal] = useState({})
     const [userCountry, setUserCountry] = useState("")
@@ -61,40 +61,7 @@ export default function HomeDisplay() {
                 world Total Statistics
             </h2>
             <div className='main-cards-div'>
-                <div className='card-div'>
-
-                    <Card style={{ backgroundColor: "rgb(210, 61, 111)", color: "#fff" }} sx={{ minWidth: 275 }}>
-                        <CardContent>
-                            <Typography variant="body2">
-                                Total confirmed : {Total.TotalConfirmed
-                                }
-                            </Typography>
-                        </CardContent>
-
-                    </Card>
-                </div>
-                <div className='card-div'>
-
-                    <Card style={{ backgroundColor: "rgb(210, 61, 111)", color: "#fff" }} sx={{ minWidth: 275 }}>
-                        <CardContent>
-                            <Typography variant="body2">
-                                Total Deaths : {Total.TotalDeaths}
-                            </Typography>
-                        </CardContent>
-
-                    </Card>
-                </div>
-                <div className='card-div'>
-
-                    <Card style={{ backgroundColor: "rgb(210, 61, 111)", color: "#fff" }} sx={{ minWidth: 275 }}>
-                        <CardContent>
-                            <Typography variant="body2">
-                                Total Recovered : {Total.TotalRecovered}
-                            </Typography>
-                        </CardContent>
-
-                    </Card>
-                </div>
+                <HomeDisplayTotalWorldCard TotalConfirmed={Total.TotalConfirmed} TotalDeaths={Total.TotalDeaths} TotalRecovered={Total.TotalRecovered} />
             </div>
             <h3>Get Statistics For a Specific Country </h3>
 
@@ -125,25 +92,11 @@ export default function HomeDisplay() {
                 <button type="submit" onClick={handleSubmit} ><i class="fa fa-search"></i>search</button>
             </div>
             <div className='result-card'>
-
-
                 {userResult.map(ele => {
                     return (
-
-                        <div style={{height:"70px"}} id='card-id'>
-                            <Card  sx={{ maxWidth: 345 }}>
-                                <CardContent>
-
-                                    <Typography  style={{ color: "rgb(210, 61, 111)", fontSize: "19px" }} gutterBottom variant="body2" component="div">
-                                        Date:  {ele.Date}
-                                    </Typography>
-                                    <Typography  variant="body2" color="text.secondary">
-                                        number of confirmed cases : {ele.Cases}
-                                    </Typography>
-                                </CardContent>
-                            </Card>
+                        <div style={{ height: "70px" }} id='card-id'>
+                            <SpecificCountryCard Date={ele.Date} Cases={ele.Cases} />
                         </div>
-
                     )
                 })
                 }
