@@ -71,8 +71,8 @@ export default function MyRecords() {
                     }
                 </When>
             </div>
-            <When condition={allrecords == ''}>
-            <When condition={ authContext.isLoggedIn == true}>
+            <When condition={allrecords === ''}>
+            <When condition={ authContext.isLoggedIn === true}>
                 
 
                 <img style={{display:'block',marginLeft:'auto',marginRight:'auto',marginTop:"70px"}} src={logo} alt="covid header BG" />
