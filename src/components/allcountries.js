@@ -55,7 +55,7 @@ export default function AllCountries() {
                                     </CardContent>
                                     <CardActions id='add-rec'>
                                         <Button style={{marginLeft:"70px",width:"130px"}} id='btn' variant="contained" onClick={() => {
-                                            axios.post('http://localhost:3000/AddRecord', {
+                                            axios.post('https://asac-co19-back-backend.onrender.com/AddRecord', {
                                                 country: ele.Country,
                                                 totalConfirmedCases: ele.TotalConfirmed,
                                                 totalDeathCases: ele.TotalDeaths,

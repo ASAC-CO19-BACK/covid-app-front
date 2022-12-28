@@ -15,7 +15,7 @@ export default function MyRecords() {
     const authContext = React.useContext(AuthContext)
     const [allrecords, setAllRecords] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/getRecords', {
+        axios.get('https://asac-co19-back-backend.onrender.com/getRecords', {
             headers: {
                 'Authorization': `Bearer ${cookie.load("token")}`
             }
@@ -50,7 +50,7 @@ export default function MyRecords() {
                                         <CardActions id='add-rec'>
 
                                             <Button onClick={() => {
-                                                axios.delete(`http://localhost:3000/deleteRecord/${ele.id}`, {
+                                                axios.delete(`https://asac-co19-back-backend.onrender.com/deleteRecord/${ele.id}`, {
                                                     headers: {
                                                         'Authorization': `Bearer ${cookie.load("token")}`
                                                     }
@@ -74,6 +74,7 @@ export default function MyRecords() {
             <When condition={allrecords == ''}>
             <When condition={ authContext.isLoggedIn == true}>
                 
+
                 <img style={{display:'block',marginLeft:'auto',marginRight:'auto',marginTop:"70px"}} src={logo} alt="covid header BG" />
 
                 </When>
